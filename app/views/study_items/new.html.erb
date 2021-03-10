@@ -1,0 +1,20 @@
+<h1>Cadastrar Item de Estudo</h1>
+
+<%= form_with(model: @study_item) do |f| %>
+    <div>
+        <%= f.label :title, 'Título' %>
+        <%= f.text_field :title, required: "required" %>
+    </div>
+    <div>
+        <%= f.label :category, 'Categoria' %>
+        <%= f.text_field :category %>
+    </div>
+    <div>
+        <%= f.label :done, 'Sim' %>
+        <%= f.radio_button :done, 'true' %>
+        <%= f.label :done, 'Não' %>
+        <%= f.radio_button :done, 'false' %>
+    </div>
+
+    <%= f.submit %>
+<% end %>

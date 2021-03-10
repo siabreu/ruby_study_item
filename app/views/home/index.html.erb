@@ -1,7 +1,11 @@
 <ul>
-<% @study_items.each do |item| %>
-    <li>
-        <%= link_to(item.full_title, study_item_path(item.id)) %>
-    </li>
-<% end %>
+    <% @study_items.each do |item| %>
+        <li>
+            <%= link_to(item.full_title, study_item_path(item.id)) %>
+        </li>    
+    <% end %>
 </ul>
+
+
+
+<%= link_to 'Cadastrar Novo Item', new_study_item_path %>
