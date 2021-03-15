@@ -10,12 +10,8 @@ class StudyItemsController < ApplicationController
 
     def create
         si_params = params.require(:study_item).permit(:title, 
-            :category, :done)
+            :category_id, :done)
         @study_item = StudyItem.new(si_params)
-
-        # @study_item.title = params[:study_item][:title]
-        # @study_item.category = params[:study_item][:category]
-        # @study_item.done = params[:study_item][:done]
 
         if @study_item.save
             flash[:alert] = 'item de estudo adicionado'
@@ -36,7 +32,7 @@ class StudyItemsController < ApplicationController
         @study_item = StudyItem.find(id)
 
         if @study_item.update( params.require(:study_item).permit(:title, 
-            :category, :done) )
+            :category_id, :done) )
             # redirect_to @study_item
             redirect_to root_path
         else
