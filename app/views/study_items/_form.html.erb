@@ -1,15 +1,11 @@
-<h1>Cadastrar Item de Estudo</h1>
-<%= render partial: 'form', locals: {study_item: @study_item}%>
-
-<!--
-<%= form_with(model: @study_item) do |f| %>
+<%= form_with(model: study_item) do |f| %>
     <div>
         <%= f.label :title, 'Título' %>
         <%= f.text_field :title, required: "required" %>
     </div>
     <div>
         <%= f.label :category, 'Categoria' %>
-        <%= f.text_field :category %>
+        <%= f.select :category, ['Ruby', 'Rails', 'Fundamentos','Web'].sort, option: 2 %>
     </div>
     <div>
         <%= f.label :done, 'Sim' %>
@@ -20,5 +16,3 @@
 
     <%= f.submit %>
 <% end %>
-
--->

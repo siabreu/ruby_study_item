@@ -25,4 +25,30 @@ class StudyItemsController < ApplicationController
             render "new"
         end
     end
+
+    def edit
+        id = params[:id]
+        @study_item = StudyItem.find(id)
+    end
+
+    def update
+        id = params[:id]
+        @study_item = StudyItem.find(id)
+
+        if @study_item.update( params.require(:study_item).permit(:title, 
+            :category, :done) )
+            # redirect_to @study_item
+            redirect_to root_path
+        else
+            render "edit"
+        end    
+    end
+
+    def mark_as_done
+        id = params[:id]
+        @study_item = StudyItem.find(id)
+        @study_item.done!
+        redirect_to @study_item
+        # redirect_to root_path
+    end
 end
